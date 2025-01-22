@@ -1,0 +1,61 @@
+/* Grundstil för texten */
+.name {
+    position: relative;
+    color: inherit;
+    
+  }
+
+  .ball-left {
+    position: absolute; /* Gör det möjligt att styra placeringen */
+    z-index: -1; /* Placera den bakom andra element */
+    bottom: -400px; /* Justera positionen under knapparna */
+    left: -30px; /* Justera den horisontella positionen */
+    width: 50%; /* Ändra storleken på bilden vid behov */
+    
+  }
+  @media (max-width: 600px) {
+    .ball-left {
+      bottom: 175px; /* Exempel: Flytta upp på mindre skärmar */
+      left: 230px; /* Exempel: Justera positionen för mobil */
+      width: 40%; /* Gör den större på mobila enheter */
+    }
+  }
+
+  .contactMe {
+    width: 300px;
+    border-radius: 50px !important; 
+    gap: 10px;
+  }
+
+  @media (max-width: 600px) {
+    .contactMe {
+      width: 50%;
+      border-radius: 50px;
+
+    }
+    
+
+  }
+  
+  /* Markörstil */
+  .highlight .name::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: #6AE296; /* Färg på markeringen */
+    animation: highlightAnimation 1.5s ease-in-out;
+  }
+  
+  /* Animation */
+  @keyframes highlightAnimation {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  

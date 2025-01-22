@@ -1,0 +1,42 @@
+.ballRight {
+    position: absolute; /* Placera bilden relativt till föräldern */
+    z-index: -1; /* Placera bilden bakom andra element */
+    bottom: -74px; /* Justera vertikal position */
+    right: -90px; /* Justera horisontell position */
+    width: 700px; /* Ändra storlek på bilden */
+    gap: 50px;
+    
+  }
+  @media (max-width: 600px) {
+    .ballRight {
+      bottom: 375px; /* Exempel: Flytta upp på mindre skärmar */
+      left: 10px; /* Exempel: Justera positionen för mobil */
+      width: 90%; /* Gör den större på mobila enheter */
+    }
+  }
+
+  .project-card {
+    position: relative; /* Gör det möjligt att använda z-index */
+    z-index: 1; /* Se till att korten är framför bilden */
+  }
+
+  /* För alla Chips */
+.MuiChip-root {
+  padding: 8px 12px; /* Lite mer padding för att göra Chips större */
+  font-size: 0.875rem; /* Lite större textstorlek */
+  border-radius: 16px; /* Gör hörnen rundare */
+  margin: 5px; /* Lägg till ett litet mellanrum mellan Chips */
+}
+
+/* För små skärmar (max-width: 600px) */
+@media (max-width: 600px) {
+  .MuiChip-root {
+    display: flex !important;
+    align-items: center !important;
+    font-size: 1rem; /* Större textstorlek på mobilen */
+    padding: 10px 15px; /* Mer padding för att göra Chips större och mer lättlästa */
+    margin: 5px !important; /* Justera marginalen för att få bättre mellanrum */
+    white-space: normal; /* Tillåt radbrytning om det behövs */
+  }
+}
+

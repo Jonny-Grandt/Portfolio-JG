@@ -1,0 +1,87 @@
+.Linkedin {
+    width: 64px;
+}
+
+.Phone {
+
+  width: 64px;
+}
+
+.ballLeft {
+  position: absolute; /* Placera bilden relativt till föräldern */
+    z-index: -1; /* Placera bilden bakom andra element */
+    bottom: 291px; /* Justera vertikal position */
+    left: -2px; /* Justera horisontell position */
+    width: 400px; /* Ändra storlek på bilden */
+
+}
+@media (max-width: 600px) {
+  .ballLeft {
+    position: relative;
+    z-index: -1;
+    bottom: 680px; /* Exempel: Flytta upp på mindre skärmar */
+    left: 230px; /* Exempel: Justera positionen för mobil */
+    width: 40%; /* Gör den större på mobila enheter */
+  }
+}
+
+/* Hover container */
+.hover-effect {
+  position: relative;
+  display: flex; /* Använd flexbox för centrering */
+  flex-direction: column; /* Lägg texten under bilden */
+  align-items: center; /* Centrera horisontellt */
+  cursor: pointer;
+  gap: 50px; /* Mellanrum mellan bild och text */
+}
+  
+  /* Dold text som ska visas vid hover */
+  .hover-text {
+    position: absolute;
+    left: 55%; /* Placera texten precis bredvid bilden */
+    top: 50%;
+    transform: translateY(-50%) translateX(10px); /* Justera placeringen */
+    white-space: nowrap; /* Håll texten på en rad */
+    
+    color: white; /* Textfärg */
+    padding: 5px 10px;
+    border-radius: 5px;
+    opacity: 0; /* Gör texten osynlig som standard */
+    transition: all 0.3s ease; /* Lägg till smidig övergång */
+    pointer-events: none; /* Gör texten ej klickbar som standard */
+  }
+  
+  /* Gör att texten visas vid hover */
+  .hover-effect:hover .hover-text {
+    opacity: 1; /* Gör texten synlig */
+    pointer-events: auto; /* Tillåt interaktion */
+    transform: translateY(-50%) translateX(25px); /* Skjut texten lite längre ut */
+  }
+  
+  /* Ikonens hover-effekt */
+  .hover-effect img {
+    transition: transform 0.3s ease;
+  }
+  
+  .hover-effect:hover img {
+    transform: scale(1.1); /* Gör ikonen större vid hover */
+  }
+  
+
+
+
+.github {
+    width: 64px;
+}
+
+.Location {
+    width: 64px;
+}
+
+.name-text {
+    margin-top: auto; /* Tvinga texten längst ner */
+    text-align: right; /* Justera texten till höger */
+    align-self: flex-end; /* För att verkligen trycka den till höger */
+    font-weight: bold;
+    color: #fff; /* Ändra om du har en mörk bakgrund */
+  }
