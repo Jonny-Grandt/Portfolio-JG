@@ -31,8 +31,7 @@
 /* För små skärmar (max-width: 600px) */
 @media (max-width: 600px) {
   .MuiChip-root {
-    display: flex !important;
-    align-items: center !important;
+    
     font-size: 1rem; /* Större textstorlek på mobilen */
     padding: 10px 15px; /* Mer padding för att göra Chips större och mer lättlästa */
     margin: 5px !important; /* Justera marginalen för att få bättre mellanrum */

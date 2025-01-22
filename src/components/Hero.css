@@ -24,7 +24,7 @@
   .contactMe {
     width: 300px;
     border-radius: 50px !important; 
-    gap: 10px;
+    
   }
 
   @media (max-width: 600px) {

@@ -12,6 +12,7 @@ import NotFound from "./components/NotFound";
 import "./App.css";
 import MyWork from "./components/MyWork";
 import Footer from "./components/Footer";
+import DrawerAppBar from "./components/DrawerAppBar";
 
 
 const myTheme = createTheme(themeOptions)
@@ -23,6 +24,7 @@ const routesFromElements = createRoutesFromElements(
     <Route path="/about" element={<AboutPage />} errorElement={<NotFound />} />
     <Route path="/MyWork" element={<MyWork />} errorElement={<NotFound />} />
     <Route path="/Footer" element={<Footer />} errorElement={<NotFound />} />
+    <Route path="/DrawerAppBar" element={<DrawerAppBar />} errorElement={<NotFound />} />
    
   </Route>
 );
