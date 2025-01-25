@@ -18,39 +18,49 @@ import logo from "../assets/JG-logo.png";
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 200;
-const navItems = ['Home', 'About', 'Projects', 'CV', 'Contact'];
+const navItems = ['Home', 'About', 'MyWork', 'CV', 'Contact'];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const navigate = useNavigate(); // Flytta useNavigate till komponentens scope
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
+  const routes = {
+    Home: '/',
+    About: '/About',
+    Projects: '/MyWork',
+    CV: '/CV',
+    Contact: '/Contact',
+  };
+
   const handleMenuItemClick = (item) => {
-  const navigate = useNavigate();
-  navigate(`/${item.toLowerCase()}`); // Navigera till sidan med sökvägen /projects, /about etc.
-  setMobileOpen(false); // Stäng menyn
-};
+    const path = routes[item]; // Hämta rätt path från mappingen
+    console.log(item, path); // Debugga
+    navigate(path); // Navigera till den specifika pathen
+    setMobileOpen(false); // Stäng menyn
+  };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <img src={logo} 
-      alt="logo" 
-      width={"35px"} 
-      style={{ margin: "8px 0px" }} />
-
-      
+      <img
+        src={logo}
+        alt="logo"
+        width={"35px"}
+        style={{ margin: "8px 0px" }}
+      />
       <List>
-  {navItems.map((item) => (
-    <ListItem key={item} disablePadding>
-      <ListItemButton onClick={() => handleMenuItemClick(item)}>
-        <ListItemText primary={item} />
-      </ListItemButton>
-    </ListItem>
-  ))}
-</List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton onClick={() => handleMenuItemClick(item)}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
 
@@ -80,7 +90,11 @@ function DrawerAppBar(props) {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
+              <Button
+                key={item}
+                sx={{ color: "#fff" }}
+                onClick={() => handleMenuItemClick(item)}
+              >
                 {item}
               </Button>
             ))}
@@ -109,16 +123,13 @@ function DrawerAppBar(props) {
       </nav>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <Typography>
-          
-        </Typography>
+        <Typography></Typography>
       </Box>
     </Box>
   );
 }
 
 DrawerAppBar.propTypes = {
-  
   window: PropTypes.func,
 };
 

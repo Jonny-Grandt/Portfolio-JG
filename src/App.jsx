@@ -20,14 +20,13 @@ const myTheme = createTheme(themeOptions)
 const routesFromElements = createRoutesFromElements(
   <Route path="/" element={<RootLayout />}> 
     <Route index element={<HomePage />} errorElement={<NotFound />} />
-    
-    <Route path="/about" element={<AboutPage />} errorElement={<NotFound />} />
+    <Route path="/About" element={<AboutPage />} errorElement={<NotFound />} />
     <Route path="/MyWork" element={<MyWork />} errorElement={<NotFound />} />
     <Route path="/Footer" element={<Footer />} errorElement={<NotFound />} />
     <Route path="/DrawerAppBar" element={<DrawerAppBar />} errorElement={<NotFound />} />
-   
   </Route>
 );
+
 const router = createBrowserRouter(routesFromElements);
 
 function App() {

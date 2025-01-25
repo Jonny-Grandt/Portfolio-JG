@@ -81,6 +81,8 @@ export default function Navbar(props) {
               Projects
               </Button>
             <Button onClick ={() => {}} variant="outlined" color="text"
+              component="a"
+              href="https://drive.google.com/file/d/1h70QXqjlFHdLBWIV9Y6OPNRE0mHE4Prh/view?usp=drive_link"
               sx={{ borderRadius:"50px"}}>
               CV
               </Button>

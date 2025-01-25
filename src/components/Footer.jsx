@@ -29,58 +29,73 @@ export default function Footer() {
         margin: "0 auto",
       }}
     >
-      <Box sx={{ display: "flex", justifyContent: "left", zIndex: 0 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "left",
+          zIndex: 0,
+        }}
+      >
         <img src={ballLeft} alt="" className="ballLeft" />
       </Box>
-      <Box sx={{ width: { sm: "100%", md: "50%" } }}>
-        <Typography
+      <Box
+        sx={{
+          width: { sm: "100%", md: "50%" },
+        }}
+      >
+        <Typography component="div"
           className="Contact"
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)", // Two columns
-            gap: "20px",
+            gridTemplateColumns: "repeat(2, 1fr)", // Två kolumner
+            gap: "20px", // Mellanrum mellan bilderna
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          {/* Contact Information */}
-          <a
-            href="https://www.linkedin.com/in/jonny-grandt-ba533b123/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover-effect"
-          >
-            <img className="Linkedin" src={LinkedIn} alt="LinkedIn" />
+          <div className="hover-effect">
+            <a
+              href="https://www.linkedin.com/in/jonny-grandt-ba533b123/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="Linkedin" src={LinkedIn} alt="LinkedIn" />
+            </a>
             <span className="hover-text">LinkedIn</span>
-          </a>
+          </div>
 
-          <a href="tel:+46 725755306" className="hover-effect">
-            <img className="Phone" src={Phone} alt="Phone" />
-            <span className="hover-text">+46 725755306</span>
-          </a>
+          <div className="hover-effect">
+            <a href="tel:+46 725755306">
+              <img className="Phone" src={Phone} alt="Phone" />
+              <span className="hover-text">+46 725755306</span>
+            </a>
+          </div>
 
-          <a
-            href="https://github.com/Jonny-Grandt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover-effect"
-          >
-            <img className="github" src={github} alt="Github" />
-            <span className="hover-text">Github</span>
-          </a>
+          <div className="hover-effect">
+            <a
+              href="https://github.com/Jonny-Grandt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img className="github" src={github} alt="Github" />
+              <span className="hover-text">Github</span>
+            </a>
+          </div>
 
-          <a href="https://www.google.com/maps?q=Jönköping">
-            <img className="Location" src={Location} alt="Location" />
+          <div className="hover-effect">
+            <a href="https://www.google.com/maps?q=Jönköping">
+              <img className="Location" src={Location} alt="Location" />
+            </a>
             <span className="hover-text">Jönköping</span>
-          </a>
+          </div>
         </Typography>
 
         <Typography
           className="name-text"
           sx={{
-            fontSize: { xs: "1.5rem", md: "1rem" },
+            fontSize: { xs: "1rem", md: "1rem" },
             alignSelf: "flex-end",
-            marginTop: "20px",
+            marginTop: "15px",
             textAlign: "center",
           }}
         >
