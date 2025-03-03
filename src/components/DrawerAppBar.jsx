@@ -29,18 +29,23 @@ function DrawerAppBar(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const routes = {
-    Home: '/',
-    About: '/About',
-    Projects: '/MyWork',
-    CV: '/CV',
-    Contact: '/Contact',
-  };
-
   const handleMenuItemClick = (item) => {
-    const path = routes[item]; // Hämta rätt path från mappingen
-    console.log(item, path); // Debugga
-    navigate(path); // Navigera till den specifika pathen
+    const routes = {
+      Home: '/',
+      About: '/About',
+      MyWork: '/MyWork',
+      CV: "https://drive.google.com/file/d/1h70QXqjlFHdLBWIV9Y6OPNRE0mHE4Prh/view?usp=drive_link", // CV extern länk
+      Contact: '/Contact',
+    };
+
+    // Om "CV" är vald, öppna länken i en ny flik
+    if (item === "CV") {
+      window.open(routes[item], "_blank");
+    } else {
+      // Navigera till intern route
+      navigate(routes[item]);
+    }
+
     setMobileOpen(false); // Stäng menyn
   };
 
@@ -86,7 +91,7 @@ function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (

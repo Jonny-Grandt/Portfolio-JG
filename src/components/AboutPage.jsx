@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-import JGpro from "../assets/doe.png";
+import JGpro from "../assets/JGhead2.png";
 import { Box, Typography } from "@mui/material";
 
 export default function AboutPage() {
@@ -40,11 +40,11 @@ export default function AboutPage() {
       >
         <div className="card">
           <div className="card-front" >
-            <img src={JGpro} alt="Mitt foto" width="100%" />
+            <img src={JGpro} alt="Mitt foto" width="80%" />
             <div className="card-text"></div>
           </div>
           <div className="card-back">
-            <p>
+            <p className="card-text2">
               I am 43 years old, blessed with a wonderful family - Two teenage
               daughters and a fantastic wife who has been an incredible support
               throughout my journey to becoming a web developer. <br/><br/>

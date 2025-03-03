@@ -1,41 +1,33 @@
-import ButtonGroup from "./components/ButtonGroup";
-import Navbar from "./components/Navbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { themeOptions } from "./utils/theme";
 import { CssBaseline } from "@mui/material";
-import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import { Route, Routes } from "react-router-dom"; // 🚀 Behåll bara dessa från react-router-dom
+import { themeOptions } from "./utils/theme";
 import RootLayout from "./components/RootLayout";
 import HomePage from "./components/HomePage";
 import AboutPage from "./components/AboutPage";
-// import ProjectPage from "./components/ProjectPage";
 import NotFound from "./components/NotFound";
-import "./App.css";
 import MyWork from "./components/MyWork";
 import Footer from "./components/Footer";
 import DrawerAppBar from "./components/DrawerAppBar";
+import "./App.css";
 
-
-const myTheme = createTheme(themeOptions)
-
-const routesFromElements = createRoutesFromElements(
-  <Route path="/" element={<RootLayout />}> 
-    <Route index element={<HomePage />} errorElement={<NotFound />} />
-    <Route path="/About" element={<AboutPage />} errorElement={<NotFound />} />
-    <Route path="/MyWork" element={<MyWork />} errorElement={<NotFound />} />
-    <Route path="/Footer" element={<Footer />} errorElement={<NotFound />} />
-    <Route path="/DrawerAppBar" element={<DrawerAppBar />} errorElement={<NotFound />} />
-  </Route>
-);
-
-const router = createBrowserRouter(routesFromElements);
+const myTheme = createTheme(themeOptions);
 
 function App() {
   return (
-    <ThemeProvider theme= {myTheme}>
-       <CssBaseline />
-      <RouterProvider router={router}/>
-     
-         </ThemeProvider>
+    <ThemeProvider theme={myTheme}>
+      <CssBaseline />
+      <Routes> {/* 🚀 Huvudrouting */}
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="About" element={<AboutPage />} />
+          <Route path="MyWork" element={<MyWork />} />
+          <Route path="Footer" element={<Footer />} />
+          <Route path="DrawerAppBar" element={<DrawerAppBar />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 
