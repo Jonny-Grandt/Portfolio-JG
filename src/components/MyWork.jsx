@@ -4,6 +4,7 @@ import project1 from "../assets/pro1.png";
 import project2 from "../assets/pro2.png";
 import project3 from "../assets/pro3.png";
 import project4 from "../assets/pro4.png";
+import project5 from "../assets/pro5.jpg";
 import ballRight from "../assets/ball-work-right.png";
 import './MyWork.css';
 
@@ -58,6 +59,14 @@ export default function MyWork() {
       >
 
         {/* Card 1 */}
+        <ProjectCard
+          image={project5}
+          title="The Spotify Clone"
+          description={`I have developed a Spotify clone, a full-scale web application built with React, Material UI, and Spotify's API. The project is carefully designed to replicate the authentic Spotify experience, both in terms of user interface and functionality. The application includes advanced features such as music playback, playlist management, as well as dynamic interaction with Spotify’s API to provide a seamless user experience. Additionally, I have implemented a responsive design and optimized performance to ensure smooth and intuitive navigation across different devices.`}
+          technologies={["React", "MUI", "SpotifyAPI", "React Router"]}
+        />
+
+
         <ProjectCard
           image={project4}
           title="The flag app"

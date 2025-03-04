@@ -34,7 +34,7 @@ function DrawerAppBar(props) {
       Home: '/',
       About: '/About',
       MyWork: '/MyWork',
-      CV: "https://drive.google.com/file/d/1h70QXqjlFHdLBWIV9Y6OPNRE0mHE4Prh/view?usp=drive_link", // CV extern länk
+      CV: "https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing", // CV extern länk
       Contact: '/Contact',
     };
 

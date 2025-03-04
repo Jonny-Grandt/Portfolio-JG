@@ -10,10 +10,26 @@ import MyWork from "./components/MyWork";
 import Footer from "./components/Footer";
 import DrawerAppBar from "./components/DrawerAppBar";
 import "./App.css";
+import React, { useEffect } from 'react';
 
 const myTheme = createTheme(themeOptions);
 
 function App() {
+  useEffect(() => {
+    const outerCursor = document.querySelector('.custom-cursor-outer');
+    const innerCursor = document.querySelector('.custom-cursor-inner');
+
+    const handleMouseMove = (e) => {
+      outerCursor.style.transform = `translate(-50%, -50%) translate(${e.clientX}px, ${e.clientY}px)`;
+      innerCursor.style.transform = `translate(-50%, -50%) translate(${e.clientX}px, ${e.clientY}px)`;
+    };
+
+    document.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
   return (
     <ThemeProvider theme={myTheme}>
       <CssBaseline />
