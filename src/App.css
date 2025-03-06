@@ -2,26 +2,8 @@ body {
     margin: 0;
     min-height: 100vh;
     background: linear-gradient(to bottom, #222B2B, #1a2020);
-    cursor: none;
+   
     
    
   }
   
-.custom-cursor-outer,
-.custom-cursor-inner {
-  position: fixed;
-  pointer-events: none;
-  border-radius: 50%;
-}
-
-.custom-cursor-outer {
-  width: 30px;
-  height: 30px;
-  border: 2px solid rgb(77, 114, 77);
-}
-
-.custom-cursor-inner {
-  width: 10px;
-  height: 10px;
-  background-color: rgb(121, 187, 103);
-}

@@ -18,8 +18,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import { NavHashLink } from "react-router-hash-link";
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 const navItems = ['Home', 'About', 'Projects', 'CV', 'Contact'];
 
 export default function Navbar(props) {
@@ -74,15 +75,15 @@ export default function Navbar(props) {
             
             <Stack direction="row" spacing={1} sx={{ display: { sm: "none",  xs: 'none', md: 'block' } }}>
 
-            {/* <Button onClick={() => nav('/about')} color="inherit">
+            <Button onClick={() => nav('/about')} color="inherit">
               About
-              </Button> */}
+              </Button>
             <Button  onClick={() => nav('/mywork')} color="inherit">
               Projects
               </Button>
             <Button onClick ={() => {}} variant="outlined" color="text"
               component="a"
-              href="https://drive.google.com/file/d/1h70QXqjlFHdLBWIV9Y6OPNRE0mHE4Prh/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing"
               sx={{ borderRadius:"50px"}}>
               CV
               </Button>

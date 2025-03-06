@@ -23,7 +23,7 @@ const navItems = ['Home', 'About', 'MyWork', 'CV', 'Contact'];
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const navigate = useNavigate(); // Flytta useNavigate till komponentens scope
+  const navigate = useNavigate(); 
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -38,7 +38,6 @@ function DrawerAppBar(props) {
       Contact: '/Contact',
     };
 
-    // Om "CV" är vald, öppna länken i en ny flik
     if (item === "CV") {
       window.open(routes[item], "_blank");
     } else {
