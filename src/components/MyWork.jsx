@@ -42,6 +42,7 @@ export default function MyWork() {
           Here you can see what I’ve been building. Each project represents a
           step forward in my journey as a web developer.
         </Typography>
+       
       </Stack>
       
 

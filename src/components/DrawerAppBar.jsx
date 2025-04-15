@@ -18,44 +18,35 @@ import logo from "../assets/JG-logo.png";
 import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 200;
-const navItems = ['Home', 'About', 'MyWork', 'CV', 'Contact'];
+const navItems = ["Home", "About", "MyWork", "CV", "Contact"];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
   const handleMenuItemClick = (item) => {
-    const routes = {
-      Home: '/',
-      About: '/About',
-      MyWork: '/MyWork',
-      CV: "https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing", // CV extern länk
-      Contact: '/Contact',
-    };
-
     if (item === "CV") {
-      window.open(routes[item], "_blank");
+      window.open(
+        "https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing",
+        "_blank"
+      );
+    } else if (item === "Contact") {
+      navigate("/Contact");
     } else {
-      // Navigera till intern route
-      navigate(routes[item]);
+      navigate(item === "Home" ? "/" : `/${item}`);
     }
-
-    setMobileOpen(false); // Stäng menyn
+    setMobileOpen(true); // Stänger hamburgermenyn efter klick
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <img
-        src={logo}
-        alt="logo"
-        width={"35px"}
-        style={{ margin: "8px 0px" }}
-      />
+    <Box sx={{ textAlign: "center" }} onClick={handleDrawerToggle}>
+      <img src={logo} alt="logo" width={"35px"} style={{ margin: "8px 0px" }} />
+      <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
@@ -74,8 +65,13 @@ function DrawerAppBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar
+        component="nav"
+        position="fixed"
+        sx={{ backgroundColor: "rgba(34, 43, 43, 1)", backdropFilter: "none" }}
+      >
         <Toolbar>
+          {/* Hamburger-knapp */}
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -85,13 +81,8 @@ function DrawerAppBar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            
-          </Typography>
+
+          {/* Desktop navigation */}
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button
@@ -105,15 +96,16 @@ function DrawerAppBar(props) {
           </Box>
         </Toolbar>
       </AppBar>
+      <Box sx={{ height: "64px" }} />
+
+      {/* Hamburger-meny */}
       <nav>
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
@@ -125,9 +117,9 @@ function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
+
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <Typography></Typography>
       </Box>
     </Box>
   );

@@ -7,12 +7,27 @@
     gap: 50px;
     
   }
+
+  .ballLeft {
+    position: absolute;
+    z-index: -1;
+    top: 10px;
+    left: 100px;
+  }
   @media (max-width: 600px) {
     .ballRight {
       bottom: 375px; /* Exempel: Flytta upp på mindre skärmar */
       left: 10px; /* Exempel: Justera positionen för mobil */
-      width: 90%; /* Gör den större på mobila enheter */
+      width: 90%;
+      z-index: -1; /* Gör den större på mobila enheter */
     }
+  }
+
+  .ballLeft {
+    position: absolute;
+    z-index: -1;
+    top: -3252px;
+    left: 130px;
   }
 
   .project-card {

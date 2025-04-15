@@ -1,16 +1,16 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
 import Toolbar from "@mui/material/Toolbar";
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/material";
-import logo from '../assets/JG-logo.png'
-import { useNavigate, Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import logo from "../assets/JG-logo.png";
+import { useNavigate } from "react-router-dom";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
@@ -18,117 +18,81 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { NavHashLink } from "react-router-hash-link";
 
 const drawerWidth = 200;
-const navItems = ['Home', 'About', 'Projects', 'CV', 'Contact'];
+const navItems = ["Home", "About", "MyWork", "CV", "Contact"];
 
 export default function Navbar(props) {
-  const nav = useNavigate();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const { window } = props;
+  const { setMobileOpen } = props; // Destructure setMobileOpen from props
+  const navigate = useNavigate();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+  const handleMenuItemClick = (item) => {
+    if (item === "CV") {
+      window.open(
+        "https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing",
+        "_blank"
+      );
+    } else {
+      navigate(item === "Home" ? "/" : `/${item}`);
+    }
+    setMobileOpen(false); // Close the drawer after clicking a link
   };
-
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <img src={logo} 
-      alt="logo" 
-      width={"35px"} 
-      style={{ margin: "8px 0px" }} />
-
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding> 
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container =
-  window !== undefined ? () => window().document.body : undefined;
-
-
-  
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar 
-        position="static" 
+      <AppBar
+        position="static"
         sx={{ backgroundColor: (theme) => theme.palette.background.default }}
       >
         <Container>
-          <Toolbar sx={{ padding: "0px !important", display: 'flex', justifyContent: 'space-between'}}>
-
-            <Link to="/">
-              <img src={logo} alt="logo" width={'35px'} />
-
-            </Link>
-            
-            <Stack direction="row" spacing={1} sx={{ display: { sm: "none",  xs: 'none', md: 'block' } }}>
-
-            <Button onClick={() => nav('/about')} color="inherit">
-              About
-              </Button>
-            <Button  onClick={() => nav('/mywork')} color="inherit">
-              Projects
-              </Button>
-            <Button onClick ={() => {}} variant="outlined" color="text"
-              component="a"
-              href="https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing"
-              sx={{ borderRadius:"50px"}}>
-              CV
-              </Button>
-            <Button onClick={() => {}} variant="contained" color="primary"
-              component="a"
-              href="mailto:jonny.grandt@gmail.com"
-              sx={{ borderRadius:"50px"}}>
-
-              Contact
-              </Button>
-              </Stack>
-              <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "block", md: 'none' } }}
+          <Toolbar
+            sx={{
+              padding: "0px !important",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-            
+            <Link to="/">
+              <img src={logo} alt="logo" width={"35px"} />
+            </Link>
+
+            <Stack
+              direction="row"
+              spacing={1}
+              sx={{ display: { sm: "none", xs: "none", md: "block" } }}
+            >
+              {navItems.map((item) => (
+                <Button
+                  key={item}
+                  component={Link}
+                  to={
+                    item === "CV"
+                      ? "https://drive.google.com/file/d/1zArwtvcqBpw4BxBU8inoGKKOlyRPFjiO/view?usp=sharing"
+                      : item === "Contact"
+                      ? "mailto:jonny.grandt@gmail.com"
+                      : `/${item === "Home" ? "" : item}`
+                  }
+                  color="inherit"
+                  variant={item === "Contact" ? "contained" : "text"}
+                  sx={{
+                    borderRadius: "50px",
+                    ...(item === "Contact" && {
+                      backgroundColor: "rgba(29, 149, 73, 1)",
+                      color: "#fff", // Vit text för bättre kontrast
+                      "&:hover": {
+                        backgroundColor: "rgb(25, 104, 54)", // Lite mörkare grön vid hover
+                      },
+                    }),
+                  }}
+                  onClick={() => handleMenuItemClick(item)}
+                >
+                  {item}
+                </Button>
+              ))}
+            </Stack>
           </Toolbar>
         </Container>
       </AppBar>
-      <nav>
-        <Drawer
-          anchor="right"
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "block", md: 'none' },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
-     </Box>
-   );
+    </Box>
+  );
 }

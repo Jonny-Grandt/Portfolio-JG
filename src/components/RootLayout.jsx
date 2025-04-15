@@ -1,22 +1,29 @@
 import { Box, Container } from "@mui/material";
 import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
-import AboutPage from "./AboutPage";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 import DrawerAppBar from "./DrawerAppBar";
 import Footer from "./Footer";
+import React, { useState } from "react"; // Import useState
 
 const RootLayout = () => {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const [mobileOpen, setMobileOpen] = useState(false); // Define state here
+
   return (
     <Box>
-      <Navbar />
-
+      {isSmallScreen ? (
+        <DrawerAppBar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+      ) : (
+        <Navbar setMobileOpen={setMobileOpen} />
+      )}
       <main>
         <Container>
           <Outlet />
         </Container>
-        <AboutPage />
       </main>
-
       <Footer />
     </Box>
   );
