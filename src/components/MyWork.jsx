@@ -143,6 +143,9 @@ function ProjectCard({ image, title, description, technologies }) {
         backdropFilter: "blur(6.7px)",
         WebkitBackdropFilter: "blur(6.7px)",
         border: "1px solid rgba(182, 9, 9, 0.07)",
+        zIndex:-1, // Högre än bilden
+        position: "relative", // För att kortens z-index ska fungera korrekt
+        overflow: "hidden", // För att klippa av eventuella överflödiga delar
       }}
     >
       <Box
