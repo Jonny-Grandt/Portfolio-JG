@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import jghero from "../assets/hero3.png";
+import jghero from "../assets/hero3.webp";
 import { Box, Stack, Button, Typography } from "@mui/material";
-import "./Hero.css"; // Importera CSS-filen
+import "./Hero.css"; 
 import BallLeft from "../assets/ball-left.png";
 
 export default function Hero() {
   const [highlight, setHighlight] = useState(false);
 
   useEffect(() => {
-    // Starta animationen efter 2 sekunder
+
     const timer = setTimeout(() => setHighlight(true), 2000);
-    return () => clearTimeout(timer); // Rensa timeout vid unmount
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -33,7 +33,7 @@ export default function Hero() {
         </Typography>
         <Typography variant="h4">FullStack Junior webbdeveloper </Typography>
         <Typography variant="body1">
-          A web development student, passionate about building beautiful and
+          A newly hatched web developer, passionate about building beautiful and
           functional websites. I’m currently learning the MERN stack. Check out
           my projects below or connect with me to chat about web development!
         </Typography>

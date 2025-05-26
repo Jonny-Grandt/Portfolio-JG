@@ -47,8 +47,8 @@ export default function Footer() {
           className="Contact"
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)", // Två kolumner
-            gap: "20px", // Mellanrum mellan bilderna
+            gridTemplateColumns: "repeat(2, 1fr)", 
+            gap: "110px", 
             justifyContent: "center",
             alignItems: "center",
           }}

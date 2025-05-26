@@ -16,7 +16,7 @@
   }
   @media (max-width: 600px) {
     .ballRight {
-      bottom: 375px; /* Exempel: Flytta upp på mindre skärmar */
+      bottom: 420px; /* Exempel: Flytta upp på mindre skärmar */
       left: 10px; /* Exempel: Justera positionen för mobil */
       width: 90%;
       z-index: -1; /* Gör den större på mobila enheter */

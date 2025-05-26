@@ -6,8 +6,7 @@ import project3 from "../assets/pro3.png";
 import project4 from "../assets/pro4.png";
 import project5 from "../assets/pro5.jpg";
 import ballRight from "../assets/ball-work-right.png";
-import './MyWork.css';
-
+import "./MyWork.css";
 
 export default function MyWork() {
   return (
@@ -31,23 +30,26 @@ export default function MyWork() {
           textAlign: "center",
           marginBottom: "40px",
           gap: "20px",
+          position: "relative", // Ensure proper stacking context
+          zIndex: 2,
         }}
       >
         <Typography
           variant="h4"
           component="h2"
-          sx={{ fontSize: { xs: "1rem", md: "1.5rem" }, 
-          fontWeight: "bold", gap:"200px" }}
+          sx={{
+            fontSize: { xs: "1rem", md: "1.5rem" },
+            fontWeight: "bold",
+            gap: "200px",
+          }}
         >
           Here you can see what I’ve been building. Each project represents a
           step forward in my journey as a web developer.
         </Typography>
-       
       </Stack>
-      
 
       {/* Projects Section */}
-      
+
       <Stack
         spacing={4}
         sx={{
@@ -58,7 +60,6 @@ export default function MyWork() {
           zIndex: 1, // Högre än bilden
         }}
       >
-
         {/* Card 1 */}
         <ProjectCard
           image={project5}
@@ -66,7 +67,6 @@ export default function MyWork() {
           description={`I have developed a Spotify clone, a full-scale web application built with React, Material UI, and Spotify's API. The project is carefully designed to replicate the authentic Spotify experience, both in terms of user interface and functionality. The application includes advanced features such as music playback, playlist management, as well as dynamic interaction with Spotify’s API to provide a seamless user experience. Additionally, I have implemented a responsive design and optimized performance to ensure smooth and intuitive navigation across different devices.`}
           technologies={["React", "MUI", "SpotifyAPI", "React Router"]}
         />
-
 
         <ProjectCard
           image={project4}
@@ -95,20 +95,16 @@ This demonstrates my ability to interact with third-party APIs to build dynamic 
           technologies={["HTML", "CSS", "DOM manipulation", "JavaScript"]}
         />
 
-            <Box
-            sx={{
-              display:"flex",
-              justifyContent:"right",
-              zIndex: 0
-            }}>
-               <img src={ballRight} alt="" className="ballRight"/>
-            </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "right",
+            zIndex: 0,
+          }}
+        >
+          <img src={ballRight} alt="" className="ballRight" />
+        </Box>
 
-       
-
-        
-
-        
         {/* Card 3 */}
         <ProjectCard
           image={project3}
@@ -118,11 +114,8 @@ This demonstrates my ability to interact with third-party APIs to build dynamic 
             
             The project includes authentic API calls to create a functional checkout solution and simulate a real purchasing process using products fetched from the FakeStore API.`}
           technologies={["Node.js", "Express", "FakeStore API", "JavaScript"]}
-
-
         />
       </Stack>
-      
     </Box>
   );
 }
@@ -143,9 +136,6 @@ function ProjectCard({ image, title, description, technologies }) {
         backdropFilter: "blur(6.7px)",
         WebkitBackdropFilter: "blur(6.7px)",
         border: "1px solid rgba(182, 9, 9, 0.07)",
-        zIndex:-1, // Högre än bilden
-        position: "relative", // För att kortens z-index ska fungera korrekt
-        overflow: "hidden", // För att klippa av eventuella överflödiga delar
       }}
     >
       <Box
@@ -191,8 +181,7 @@ function ProjectCard({ image, title, description, technologies }) {
         <Stack
           direction="row"
           spacing={{ xs: 1.5, sm: 2 }}
-          sx={{ flexWrap: "wrap", 
-            gap: { xs: 0.5, sm: 1 } }}
+          sx={{ flexWrap: "wrap", gap: { xs: 0.5, sm: 1 } }}
         >
           {technologies.map((tech) => (
             <Chip key={tech} label={tech} variant="outlined" />
@@ -202,4 +191,3 @@ function ProjectCard({ image, title, description, technologies }) {
     </Box>
   );
 }
-
